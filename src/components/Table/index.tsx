@@ -24,7 +24,6 @@ export default function EntityTable() {
   } = useAppContext();
 
   const handleChangePage = (event: any, newPage: any) => {
-    if (newPage === 0) return;
     setPage(newPage);
   };
 

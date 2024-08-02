@@ -15,7 +15,7 @@ const AppProvider: FC<{ children: JSX.Element }> = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [renderedCompanies, setRenderedCompanies] = useState<any[]>([]);
   const [totalCompanies, setTotalCompanies] = useState(0);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(25);
   const [allDates, setAllDates] = React.useState({
     createdAllDates: false,
@@ -44,15 +44,15 @@ const AppProvider: FC<{ children: JSX.Element }> = (props) => {
       `/api/get-filtered?limit=${rowsPerPage}&page=1`
     );
 
-    console.log("hi");
-
     setRenderedCompanies(allItems.data.data);
     setTotalCompanies(allItems.data.total);
   };
 
   const handleSearch = async (firstSearch?: boolean) => {
     const allItems = await axios.post(
-      `/api/get-filtered?limit=${rowsPerPage}&page=${firstSearch ? 1 : page}`,
+      `/api/get-filtered?limit=${rowsPerPage}&page=${
+        firstSearch ? 1 : page + 1
+      }`,
       {
         dbaName,
         legalName,
