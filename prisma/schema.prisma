@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model TruckCompany {
+  id               Int       @id @default(autoincrement())
+  createdDT        DateTime?
+  modifiedDT       DateTime?
+  entity           String?
+  operatingStatus  String?
+  legalName        String
+  dbaName          String?
+  physicalAddress  String?
+  phone            String?
+  dot              Int
+  mcmxff           String?
+  powerUnits       Int?
+  outOfServiceDate DateTime?
+}

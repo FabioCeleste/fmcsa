@@ -1,0 +1,41 @@
+{
+  "name": "fmcsa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "load-new-contents": "node utils/deleteCurrentData.js && npx prisma migrate dev --name init && node utils/saveOdsToDatabase.js"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.0",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^5.16.6",
+    "@mui/material": "^5.16.6",
+    "@mui/material-nextjs": "^5.16.6",
+    "@mui/x-date-pickers": "^7.11.1",
+    "@prisma/client": "^5.17.0",
+    "axios": "^1.7.2",
+    "date-fns": "^3.6.0",
+    "dayjs": "^1.11.12",
+    "next": "14.2.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-input-mask": "^2.0.4",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.13",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-input-mask": "^3.0.5",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "prisma": "^5.17.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
